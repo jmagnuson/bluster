@@ -1,11 +1,11 @@
 use super::ffi::{CBAttributePermissions, CBCharacteristicProperties};
-use crate::gatt::characteristic::{Characteristic, Secure, Write};
+use crate::gatt::characteristic::{Characteristic, Read, Secure, Write};
 
 pub fn get_properties_and_permissions(characteristic: &Characteristic) -> (u16, u8) {
     let mut properties: u16 = 0;
     let mut permissions: u8 = 0;
 
-    if let Some(secure) = &characteristic.properties.read {
+    if let Some(Read(secure)) = &characteristic.properties.read {
         properties |= CBCharacteristicProperties::CBCharacteristicPropertyRead as u16;
 
         match secure {
