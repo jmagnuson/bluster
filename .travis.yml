@@ -1,6 +1,3 @@
-branches:
-  only:
-  - master
 language: rust
 rust:
   - nightly
@@ -21,7 +18,6 @@ before_script:
   - rustup component add clippy-preview rustfmt-preview
 script:
   - cargo build
-  # TODO: Make testing work for CI
-  # - cargo test --verbose -- --nocapture
+  - cargo test --verbose -- --nocapture
   - cargo clippy --all-targets --all-features -- -D warnings
   - cargo fmt --all -- --check
