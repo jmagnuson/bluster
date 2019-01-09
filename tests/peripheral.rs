@@ -23,7 +23,7 @@ use bluster::{
 const ADVERTISING_NAME: &str = "hello";
 const ADVERTISING_TIMEOUT: u64 = 60;
 
-#[test]
+#[test] #[ignore]
 fn it_advertises_gatt() {
     let (sender_characteristic, receiver_characteristic) = channel(1);
     let (sender_descriptor, receiver_descriptor) = channel(1);
